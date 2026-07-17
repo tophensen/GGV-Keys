@@ -6,8 +6,18 @@ Der **"Schwäbische Schlüssel"** (auch "Konservativer Schlüssel" oder "fairsha
 Der Schwäbische Schlüssel verteilt einen möglichst großen Teil der Energiemenge, die im Zeitinterval erzeugt wurde.
 Kein Teilnehmer erhält mehr Energie zugeteilt, als er verbraucht hat.
 Ansonsten aber nicht weniger als irgendein anderer Teilnehmer.
+![Schwäbischer Aufteilungsschlüssel: Hellblau = Bedarf, Dunkelblau = Zuteilung](https://github.com/tophensen/GGV-Keys/blob/main/plot_konservativ_6kwh.png)
 
-Es gibt unterschiedliche Methoden, diesen zu implementieren: Siehe [FairShare.py](https://github.com/tophensen/GGV-Keys/blob/main/fairshare.py)/[FairShare.ods](https://github.com/tophensen/GGV-Keys/blob/main/fairshare.ods).
+Der statische Aufteilungsschlüssel vergibt in solchen Fällen einen Teil der Energie (rot).
+![Statischer Aufteilungsschlüssel: Hellblau = Bedarf, Dunkelblau = Zuteilung, Rot = Nicht zugeteilt](https://github.com/tophensen/GGV-Keys/blob/main/plot_statisch_6kwh.png)
+
+Der dynamische Aufteilungsschlüssel verteilt zwar die gesamte Strommenge, übervorteilt aber große Verbraucher auf Kosten der kleinen. 
+![Dynamischer Aufteilungsschlüssel: Hellblau = Bedarf, Dunkelblau = Zuteilung](https://github.com/tophensen/GGV-Keys/blob/main/plot_dynamisch_6kwh.png)
+
+Es gibt unterschiedliche Methoden, den Schäbischen Aufteilungsschlüssel zu implementieren: 
+- als iterative Version des statischen Schlüssels, bei dem die jeweils in einer Runde nicht zugeteilte Energiemenge in der nächsten Runde aufgeteilt wird
+- mithilfe einer sortierten Liste der Verbräuche
+Implementierungen existieren hier in Python: [FairShare.py](https://github.com/tophensen/GGV-Keys/blob/main/fairshare.py), und in Excel/OpenOffice: [FairShare.ods](https://github.com/tophensen/GGV-Keys/blob/main/fairshare.ods): 
 
 Mit [GGV-plot.py](https://github.com/tophensen/GGV-Keys/blob/main/GGV-plot.py) und [GGV-plot.ipynb](https://github.com/tophensen/GGV-Keys/blob/main/GGV-plot.ipynb) lässt sich der Aufteilungsschlüssel darstellen und mit dem statischen und dynamischen Schlüssel vergleichen.
 
