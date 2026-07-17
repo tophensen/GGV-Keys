@@ -89,22 +89,24 @@ def fairShareIter(need,have):
 
 # Fastest implementation, up to 2x as fast 
 # as fairShareSorted, but same concept - 
-# this time using argsort to fill/process 
-# give[] in ascending order of needs[].
+# this time using argsort to fill needs[] 
+# in ascending order as long as we could
+# provide the same amount to those needs[]
+# we still need to fill. We distribute the 
+# remainder evenly
 def fairShareArgSort(need,have):
     nleft=len(need)
     haveleft = have
-    havePP = haveleft/nleft
     give = need.copy()
     # argsort(need): 
     for i in sorted(range(len(need)),key=lambda j:need[j]):        
-        if need[i] > havePP:
-            give[i] = havePP
+        if need[i]*nleft > haveleft:
+            give[i] = haveleft/nleft
+            # since everybody will receive haveleft/nleft,
+            # we update neither
         else:
             # give[i] = need[i] # already set via .copy() above
             haveleft -= need[i]
             nleft -= 1
-            if nleft > 0:
-                havePP = haveleft/nleft
     return give
 
