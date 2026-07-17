@@ -1,7 +1,7 @@
 # GGV-Keys
 Verteilungsschlüssel für die Gemeinschaftliche Gebäudeversorgung §42b EnWG[^1]
 
-Der **"Schwäbische Schlüssel"** (auch "Konservativer Schlüssel" oder "fairshare" genannt), der in hier definiert und implementiert wird, hat ähnliche Fairness-Eigenschaft wie der in der [FAQ des Bundeswirtschaftsministeriums](https://www.bundeswirtschaftsministerium.de/Redaktion/DE/FAQ/Solarpaket/faq-solarpaket.html) definierte *statische Schlüssel*, verteilt aber wie der ebendort genannte *dynamische Schlüssel* falls möglich stets die gesamte Energiemenge.
+Der **"Schwäbische Schlüssel"** (auch "Konservativer Schlüssel" oder "fairshare" genannt), der hier definiert und implementiert wird, hat ähnliche Fairness-Eigenschaft wie der in der [FAQ des Bundeswirtschaftsministeriums](https://www.bundeswirtschaftsministerium.de/Redaktion/DE/FAQ/Solarpaket/faq-solarpaket.html) definierte *statische Schlüssel*, verteilt aber wie der ebendort genannte *dynamische Schlüssel* falls möglich stets die gesamte Energiemenge.
 
 Der Schwäbische Schlüssel verteilt einen möglichst großen Teil der Energiemenge, die im Zeitinterval erzeugt wurde.
 Kein Teilnehmer erhält mehr Energie zugeteilt, als er verbraucht hat.
