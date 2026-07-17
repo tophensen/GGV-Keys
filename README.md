@@ -17,6 +17,7 @@ Der dynamische Aufteilungsschlüssel verteilt zwar die gesamte Strommenge, über
 Es gibt unterschiedliche Methoden, den Schäbischen Aufteilungsschlüssel zu implementieren: 
 - als iterative Version des statischen Schlüssels, bei dem die jeweils in einer Runde nicht zugeteilte Energiemenge in der nächsten Runde aufgeteilt wird
 - mithilfe einer sortierten Liste der Verbräuche
+  
 Implementierungen existieren hier in Python: [FairShare.py](https://github.com/tophensen/GGV-Keys/blob/main/fairshare.py), und in Excel/OpenOffice: [FairShare.ods](https://github.com/tophensen/GGV-Keys/blob/main/fairshare.ods): 
 
 Mit [GGV-plot.py](https://github.com/tophensen/GGV-Keys/blob/main/GGV-plot.py) und [GGV-plot.ipynb](https://github.com/tophensen/GGV-Keys/blob/main/GGV-plot.ipynb) lässt sich der Aufteilungsschlüssel darstellen und mit dem statischen und dynamischen Schlüssel vergleichen.
