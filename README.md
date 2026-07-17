@@ -9,14 +9,16 @@ Ansonsten aber nicht weniger als irgendein anderer Teilnehmer.
 ![Schwäbischer Aufteilungsschlüssel: Hellblau = Bedarf, Dunkelblau = Zuteilung](https://github.com/tophensen/GGV-Keys/blob/main/plot_konservativ_6kwh.png)
 
 Der statische Aufteilungsschlüssel vergibt in solchen Fällen einen Teil der Energie (rot).
+
 ![Statischer Aufteilungsschlüssel: Hellblau = Bedarf, Dunkelblau = Zuteilung, Rot = Nicht zugeteilt](https://github.com/tophensen/GGV-Keys/blob/main/plot_statisch_6kwh.png)
 
 Der dynamische Aufteilungsschlüssel verteilt zwar die gesamte Strommenge, übervorteilt aber große Verbraucher auf Kosten der kleinen. 
+
 ![Dynamischer Aufteilungsschlüssel: Hellblau = Bedarf, Dunkelblau = Zuteilung](https://github.com/tophensen/GGV-Keys/blob/main/plot_dynamisch_6kwh.png)
 
 Es gibt unterschiedliche Methoden, den Schäbischen Aufteilungsschlüssel zu implementieren: 
 - als iterative Version des statischen Schlüssels, bei dem die jeweils in einer Runde nicht zugeteilte Energiemenge in der nächsten Runde aufgeteilt wird
-- mithilfe einer sortierten Liste der Verbräuche
+- mithilfe einer sortierten Liste der Verbräuche: Beginnend beim kleinsten wird der Verbrauch jeweils vollständig erfüllt solange die restlichen Verbraucher mindestens dasselbe bekommen könnten. Sobald dies nicht mehr der Fall ist, wird der Rest gleichmäßig aufgeteilt. 
   
 Implementierungen existieren hier in Python: [FairShare.py](https://github.com/tophensen/GGV-Keys/blob/main/fairshare.py), und in Excel/OpenOffice: [FairShare.ods](https://github.com/tophensen/GGV-Keys/blob/main/fairshare.ods): 
 
