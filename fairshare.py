@@ -15,9 +15,9 @@ rndErr = 10**(-sigDigits)
 # Conceptually simple, reasonably fast implementation.
 # Needs a sorted list, but no argsort:
 # Fill glasses in order of their size (need[]).
-# As soon as the remaining amount divided by the number of 
-# remaining glasses is not enough to fill the next 
-# glass, we fill all remaining glasses with that amount 
+# As soon as the requested amount could not be given to  
+# everyone remaining, because it would exceed the remainder, 
+# we share that amount equally. 
 def fairShareSorted(need,have):
     havehad = have  # Für's Protokoll
     nleft=len(need) # Anzahl (noch nicht verarbeiteter) Teilnehmer
@@ -25,23 +25,21 @@ def fairShareSorted(need,have):
 
     # Bedarf der Teilnehmer wird in aufsteigender Reihenfolge abgearbeitet:
     for sn in sorted(need):
-        # Noch nicht zugeteilte Energie aufgeteilt auf
-        # noch nicht verarbeitete Teilnehmer:
-        havePP = have/nleft #round(have/nleft,sigDigits)
-        if sn > havePP: # Teilnehmer will mehr Energie als havePP,
-            break       # mehr gibt's aber nicht! (Korrektur unten)
+        # Könnten wir das was wir diesem Teilnehmer zuteilen
+        # (sein Bedarf) auch allen übrigen geben?
+        if sn*nleft > have: 
+            break # nein? Dann teilen wir ab hier fair auf (siehe unten)
         else:
             # Zuteilung:
             # Da give = need is hier nur noch
             have -= sn # Haben und
             nleft -= 1 # Zähler zu korrigieren
 
-    # Wenn nleft = 0, war Bedarf durch Haben gedeckt,
-    # ansonsten...
-    if nleft > 0:
-        maxgive = have/nleft #round(have/nleft,sigDigits) # = havePP
+    # Wenn nleft = 0, war gesamter Bedarf durch Haben gedeckt,
+    if nleft > 0: # ansonsten...
+        maxgive = have/nleft 
         for i,n in enumerate(need):
-            if n > maxgive: # wird bei havePP gekappt:
+            if n > maxgive:
                 give[i] = maxgive
                 have -= maxgive
 
